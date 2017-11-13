@@ -5,7 +5,7 @@ set -e
 
 OVPN_DATA=basic-data
 CLIENT=travis-client
-IMG=samirsyed/openvpn
+IMG=samirsyed/rpi-openvpn
 CLIENT_DIR="$(readlink -f "$(dirname "$BASH_SOURCE")/../../client")"
 
 ip addr ls

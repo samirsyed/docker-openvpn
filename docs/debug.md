@@ -7,19 +7,19 @@ Random things I do to debug the containers.
 * Create a shell in the running docker container with `docker exec`.
 * To modify the data, you can also mount the data container and modify it with
 
-        docker run --rm -it -v $OVPN_DATA:/etc/openvpn samirsyed/openvpn bash -l
+        docker run --rm -it -v $OVPN_DATA:/etc/openvpn samirsyed/rpi-openvpn bash -l
 
 ## Stream OpenVPN Logs
 
 1. Get the container's name or container ID:
 
-        root@vpn:~/docker-openvpn# docker ps
+        root@vpn:~/rpi-openvpn# docker ps
         CONTAINER ID        IMAGE                      COMMAND             CREATED             STATUS              PORTS                    NAMES
-        ed335aaa9b82        samirsyed/openvpn:latest   ovpn_run            5 minutes ago       Up 5 minutes        0.0.0.0:1194->1194/udp   sad_lovelace
+        ed335aaa9b82        samirsyed/rpi-openvpn:latest   ovpn_run            5 minutes ago       Up 5 minutes        0.0.0.0:1194->1194/udp   sad_lovelace
 
 2. Tail the logs:
 
-        root@vpn:~/docker-openvpn# docker logs -f sad_lovelace
+        root@vpn:~/rpi-openvpn# docker logs -f sad_lovelace
         + mkdir -p /dev/net
         + [ ! -c /dev/net/tun ]
         + mknod /dev/net/tun c 10 200

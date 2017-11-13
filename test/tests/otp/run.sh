@@ -5,7 +5,7 @@ set -e
 
 OVPN_DATA=basic-data-otp
 CLIENT=travis-client
-IMG=samirsyed/openvpn
+IMG=samirsyed/rpi-openvpn
 OTP_USER=otp
 CLIENT_DIR="$(readlink -f "$(dirname "$BASH_SOURCE")/../../client")"
 

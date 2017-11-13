@@ -1,4 +1,4 @@
-module docker-openvpn 1.0;
+module rpi-openvpn 1.0;
 
 require {
 	type svirt_lxc_net_t;

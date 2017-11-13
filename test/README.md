@@ -4,9 +4,9 @@ Philosophy is to not re-invent the wheel while allowing users to quickly test re
 
 Example invocation from top-level of repository:
 
-    docker build -t samirsyed/openvpn .
-    test/run.sh samirsyed/openvpn
-    # Be sure to pull samirsyed/openvpn:latest after you're done testing
+    docker build -t samirsyed/rpi-openvpn .
+    test/run.sh samirsyed/rpi-openvpn
+    # Be sure to pull samirsyed/rpi-openvpn:latest after you're done testing
 
 More details: https://github.com/docker-library/official-images/tree/master/test
 

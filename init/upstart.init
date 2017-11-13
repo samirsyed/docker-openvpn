@@ -1,8 +1,8 @@
-# Copy to /etc/init/docker-openvpn.conf
+# Copy to /etc/init/rpi-openvpn.conf
 description "Docker container for OpenVPN server"
 start on filesystem and started docker
 stop on runlevel [!2345]
 respawn
 script
-  exec docker run -v ovpn-data-example:/etc/openvpn --rm -p 1194:1194/udp --cap-add=NET_ADMIN samirsyed/openvpn
+  exec docker run -v ovpn-data-example:/etc/openvpn --rm -p 1194:1194/udp --cap-add=NET_ADMIN samirsyed/rpi-openvpn
 end script

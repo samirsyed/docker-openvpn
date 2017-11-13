@@ -11,11 +11,11 @@ I'd recommend encrypting the archive with something strong (e.g. gpg or openssl 
 
 ## Backup to Archive
 
-    docker run -v $OVPN_DATA:/etc/openvpn --rm samirsyed/openvpn tar -cvf - -C /etc openvpn | xz > openvpn-backup.tar.xz
+    docker run -v $OVPN_DATA:/etc/openvpn --rm samirsyed/rpi-openvpn tar -cvf - -C /etc openvpn | xz > openvpn-backup.tar.xz
 
 ## Restore to New Data Volume
 
 Creates an volume container named `$OVPN_DATA` to extract the data to.
 
     docker volume create --name $OVPN_DATA
-    xzcat openvpn-backup.tar.xz | docker run -v $OVPN_DATA:/etc/openvpn -i samirsyed/openvpn tar -xvf - -C /etc
+    xzcat openvpn-backup.tar.xz | docker run -v $OVPN_DATA:/etc/openvpn -i samirsyed/rpi-openvpn tar -xvf - -C /etc
