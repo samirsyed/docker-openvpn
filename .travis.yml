@@ -19,6 +19,7 @@ install:
 # Assist with ci test debugging:
 #   - DEBUG=1
 before_script:
+    - docker run --rm --privileged multiarch/qemu-user-static:register --reset
     - image="samirsyed/rpi-openvpn"
     - docker build -t "$image" .
     - docker inspect "$image"
