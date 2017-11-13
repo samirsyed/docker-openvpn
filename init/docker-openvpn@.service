@@ -32,7 +32,7 @@
 #
 [Unit]
 Description=OpenVPN Docker Container
-Documentation=https://github.com/kylemanna/docker-openvpn
+Documentation=https://github.com/samirsyed/docker-openvpn
 After=network.target docker.socket
 Requires=docker.socket
 
@@ -45,7 +45,7 @@ Restart=always
 #Environment="ARGS=--config openvpn.conf --server-ipv6 2001:db8::/64"
 Environment="NAME=ovpn-%i"
 Environment="DATA_VOL=ovpn-data-%i"
-Environment="IMG=kylemanna/openvpn:latest"
+Environment="IMG=samirsyed/openvpn:latest"
 Environment="PORT=1194:1194/udp"
 
 # To override environment variables, use local configuration directory:

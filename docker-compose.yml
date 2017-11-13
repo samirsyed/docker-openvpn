@@ -1,0 +1,12 @@
+version: '2'  
+services:  
+  openvpn:
+    cap_add:
+     - NET_ADMIN
+    image: docker-rpi-openvpn
+    container_name: openvpn
+    ports:
+     - "1194:1194/tcp"
+    restart: always
+    volumes:
+     - /Users/samirsyed/Projects/DockerImages/docker-rpi-openvpn/temp:/etc/openvpn

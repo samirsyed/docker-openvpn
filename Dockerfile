@@ -1,15 +1,18 @@
-# Original credit: https://github.com/jpetazzo/dockvpn
+# Original credit: https://github.com/kylemanna/docker-openvpn
 
 # Smallest base image
-FROM alpine:latest
+FROM resin/armv7hf-debian
 
-LABEL maintainer="Kyle Manna <kyle@kylemanna.com>"
+LABEL maintainer="Samir Syed <syed.samiruddin@gmail.com>"
+
+RUN [ "cross-build-start" ]
 
 # Testing: pamtester
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
-    apk add --update openvpn iptables bash easy-rsa openvpn-auth-pam google-authenticator pamtester && \
-    ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
-    rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
+RUN apt-get update && \
+    apt-get install openvpn iptables libpam-google-authenticator pamtester
+
+ADD ./easyrsa3 /usr/share/easy-rsa
+RUN ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin
 
 # Needed by scripts
 ENV OPENVPN /etc/openvpn
@@ -32,3 +35,5 @@ RUN chmod a+x /usr/local/bin/*
 
 # Add support for OTP authentication using a PAM module
 ADD ./otp/openvpn /etc/pam.d/
+
+RUN [ "cross-build-end" ]
